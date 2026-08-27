@@ -1,1 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To My Future Wife ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
+  <style>
+    :root {
+      --bg-color: #fce4ec;
+      --envelope-color: #ff758f;
+      --envelope-dark: #e64980;
+      --envelope-light: #ff8fa3;
+      --letter-bg: #fffbf5;
+      --heart-color: #ff3366;
+      --text-color: #4a2828;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle, #ffe6eb 0%, #f7cad0 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bg-heart {
+      position: absolute;
+      color: rgba(255, 117, 143, 0.4);
+      animation: floatUp linear infinite;
+      user-select: none;
+      z-index: 1;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(105vh) scale(0.6) rotate(0deg);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .hint-text {
+      font-size: 1.05rem;
+      color: #9c27b0;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+      animation: pulse 1.8s infinite ease-in-out;
+      font-weight: 600;
+      text-transform: uppercase;
+      transition: opacity 0.5s ease;
+      text-align: center;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.08); opacity: 1; }
+    }
+
+    .envelope-wrapper {
+      position: relative;
+      width: 310px;
+      height: 220px;
+      background-color: var(--envelope-dark);
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .letter {
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      width: 280px;
+      height: 200px;
+      background: var(--letter-bg);
+      border-radius: 8px;
+      padding: 24px 18px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      transition: all 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 2;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #ffccd5 transparent;
+      color: var(--text-color);
+    }
+
+    .letter::-webkit-scrollbar {
+      width: 4px;
+    }
+    .letter::-webkit-scrollbar-thumb {
+      background-color: #ffccd5;
+      border-radius: 4px;
+    }
+
+    .letter-content {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.6s ease 0.4s, transform 0.6s ease 0.4s;
+    }
+
+    .letter h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      color: #b01a4e;
+      text-align: center;
+      margin-bottom: 12px;
+      font-weight: normal;
+    }
+
+    .letter p {
+      font-family: 'Caveat', cursive;
+      font-size: 1.35rem;
+      line-height: 1.45;
+      margin-bottom: 12px;
+      color: #3b2d2f;
+    }
+
+    .letter .signature {
+      text-align: right;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: #880e4f;
+      margin-top: 15px;
+    }
+
+    .envelope-front-left {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-top: 110px solid transparent;
+      border-bottom: 110px solid var(--envelope-light);
+      border-left: 155px solid var(--envelope-light);
+      border-right: 155px solid transparent;
+      border-bottom-left-radius: 12px;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .envelope-front-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-top: 110px solid transparent;
+      border-bottom: 110px solid var(--envelope-color);
+      border-right: 155px solid var(--envelope-color);
+      border-left: 155px solid transparent;
+      border-bottom-right-radius: 12px;
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    .envelope-front-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 155px solid transparent;
+      border-right: 155px solid transparent;
+      border-bottom: 115px solid var(--envelope-dark);
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    .envelope-top-flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 155px solid transparent;
+      border-right: 155px solid transparent;
+      border-top: 120px solid var(--envelope-color);
+      transform-origin: top;
+      transition: transform 0.6s ease-in-out, z-index 0.2s 0.2s;
+      z-index: 6;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+
+    .seal {
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 46px;
+      height: 46px;
+      background: #c2185b;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      z-index: 7;
+      transition: transform 0.3s ease, opacity 0.4s ease;
+    }
+
+    .container.open .envelope-top-flap {
+      transform: rotateX(180deg);
+      z-index: 1;
+      transition: transform 0.5s ease-in-out, z-index 0.2s;
+    }
+
+    .container.open .seal {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0);
+      pointer-events: none;
+    }
+
+    .container.open .hint-text {
+      opacity: 0;
+    }
+
+    .container.open .letter {
+      transform: translateY(-120px) scale(1.1);
+      height: 330px;
+      z-index: 10;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .container.open .letter-content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body onclick="startMusic()">
+
+  <audio id="bgMusic" loop preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3" type="audio/mpeg">
+  </audio>
+
+  <div id="heart-container"></div>
+
+  <div class="container" id="cardContainer" onclick="toggleLetter()">
+    <div class="hint-text" id="hint">Tap anywhere to open ✨</div>
+    
+    <div class="envelope-wrapper">
+      <div class="envelope-top-flap"></div>
+      <div class="seal">❤️</div>
+      
+      <div class="letter" id="letter">
+        <div class="letter-content">
+          <h1>My Dearest Future Wife</h1>
+          <p>
+            Wherever you are right now, I hope you can feel the warmth and love that is already waiting for you.
+          </p>
+          <p>
+            I look forward to every quiet morning with you, all our shared laughter, and building a beautiful home together. Thank you for choosing to walk through this life by my side.
+          </p>
+          <p>
+            You are my greatest prayer answered and the sweetest part of my tomorrow.
+          </p>
+          <div class="signature">
+            Forever & Always,<br>
+            <strong>Your Future Husband ❤️</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="envelope-front-left"></div>
+      <div class="envelope-front-right"></div>
+      <div class="envelope-front-bottom"></div>
+    </div>
+  </div>
+
+  <script>
+    const audio = document.getElementById('bgMusic');
+    let audioStarted = false;
+
+    function startMusic() {
+      if (!audioStarted && audio) {
+        audio.volume = 0.6;
+        audio.play().then(() => {
+          audioStarted = true;
+        }).catch(() => {});
+      }
+    }
+
+    function createFloatingHearts() {
+      const container = document.getElementById('heart-container');
+      const symbols = ['❤️', '💖', '💕', '✨', '🌸'];
+      for (let i = 0; i < 20; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('bg-heart');
+        heart.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+        heart.style.left = `${Math.random() * 100}vw`;
+        heart.style.animationDuration = `${6 + Math.random() * 6}s`;
+        heart.style.animationDelay = `${Math.random() * 5}s`;
+        heart.style.fontSize = `${16 + Math.random() * 20}px`;
+        container.appendChild(heart);
+      }
+    }
+
+    let isOpen = false;
+    function toggleLetter() {
+      startMusic();
+      const container = document.getElementById('cardContainer');
+      isOpen = !isOpen;
+      if (isOpen) {
+        container.classList.add('open');
+      } else {
+        container.classList.remove('open');
+      }
+    }
+
+    document.body.addEventListener('touchstart', startMusic, { once: true });
+
+    window.onload = () => {
+      createFloatingHearts();
+      setTimeout(() => {
+        if (!isOpen) toggleLetter();
+      }, 1500);
+    };
+  </script>
+</body>
+</html>
